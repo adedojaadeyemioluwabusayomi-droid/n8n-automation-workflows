@@ -1,0 +1,850 @@
+{
+  "name": "Interest form sorting workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2090e2ff-0132-4abf-8a5e-3a91e92a5c22",
+              "name": "Full Name",
+              "value": "={{ $json['Full Name'] }}",
+              "type": "string"
+            },
+            {
+              "id": "1f4bc044-41bc-4023-8621-83750c7a58da",
+              "name": "Email Address",
+              "value": "={{ $json['Email Address'] }}",
+              "type": "string"
+            },
+            {
+              "id": "cd981d6f-d9bf-4abc-a2ba-175c44cbaf9f",
+              "name": "Ecosystem",
+              "value": "={{ $json.Ecosystem }}",
+              "type": "string"
+            },
+            {
+              "id": "7401c880-7930-4363-9f5e-b04b9ef6eb7f",
+              "name": "Networth($)",
+              "value": "={{ $json['Networth($)'] }}",
+              "type": "number"
+            },
+            {
+              "id": "3fc10c03-df12-414f-a4c2-3427562b0131",
+              "name": "submittedAt",
+              "value": "={{ $json.submittedAt }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -416,
+        192
+      ],
+      "id": "e95df078-c445-4be6-a45d-ca5d17320600",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "formTitle": "GREG VPS SERVICE",
+        "formDescription": "Hello User, we will like to know how we can serve you better",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Full Name",
+              "placeholder": "please enter your name",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Email Address",
+              "fieldType": "email",
+              "placeholder": "enter email address",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Ecosystem",
+              "fieldType": "checkbox",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Solana"
+                  },
+                  {
+                    "option": "Ethereum"
+                  },
+                  {
+                    "option": "Aptos"
+                  },
+                  {
+                    "option": "Sui"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Networth($)",
+              "fieldType": "number",
+              "placeholder": "enter your networth",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "appendAttribution": false,
+          "buttonLabel": "LIVE ON CLOUD",
+          "ignoreBots": true,
+          "customCss": ":root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #fbfcfe;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #ffffff;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #7e8186;\n\t--color-header: #800080;\n\t--color-label: #555555;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #71747A;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #800080;\n\t--color-submit-btn-text: #ffffff;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #7e8186;\n\t--color-html-text: #555;\n\t--color-html-link: #ff6d5a;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}"
+        }
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.5,
+      "position": [
+        -640,
+        192
+      ],
+      "id": "e0eb34a5-abc3-44a6-bbf8-ffddec1e31be",
+      "name": "Trigger Form",
+      "webhookId": "48545e21-7941-4a45-a07e-3ce1fd0334b5"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json['Networth($)'] }}",
+                    "rightValue": 10000,
+                    "operator": {
+                      "type": "number",
+                      "operation": "gte"
+                    },
+                    "id": "18436ecf-88d3-47b9-81dd-7367a17ee35b"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Hot"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "48bd9001-06d0-4066-9fdf-7a8ac88403a0",
+                    "leftValue": "={{ $json['Networth($)'] }}",
+                    "rightValue": 5000,
+                    "operator": {
+                      "type": "number",
+                      "operation": "gte"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Warm"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "21a8e69a-55ae-494e-8e5e-d77c9d28d55b",
+                    "leftValue": "={{ $json['Networth($)'] }}",
+                    "rightValue": 1000,
+                    "operator": {
+                      "type": "number",
+                      "operation": "lt"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "cold"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -192,
+        176
+      ],
+      "id": "814b2326-1ec4-46bf-882a-3f9b2b60c1f2",
+      "name": "Workflow config"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1RUrpaSIkgndpXpAFU4fQz5jP1_bcf9VOMv1fCWRbx2E",
+          "mode": "list",
+          "cachedResultName": "VPS INTEREST",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1RUrpaSIkgndpXpAFU4fQz5jP1_bcf9VOMv1fCWRbx2E/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hot",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1RUrpaSIkgndpXpAFU4fQz5jP1_bcf9VOMv1fCWRbx2E/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Time stamp": "={{ $json.submittedAt }}",
+            "Name": "={{ $json['Full Name'] }}",
+            "Email": "={{ $json['Email Address'] }}",
+            "Ecosystem": "={{ $json.Ecosystem }}",
+            "Networth": "={{ $json['Networth($)'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Time stamp",
+              "displayName": "Time stamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Ecosystem",
+              "displayName": "Ecosystem",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Networth",
+              "displayName": "Networth",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        32,
+        0
+      ],
+      "id": "9209676a-c2b0-4daf-b600-c5c0539a3032",
+      "name": "sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "9RiSL76vCvm86LuI",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "handelkim31@gmail.com",
+        "subject": "Notification Message",
+        "emailType": "text",
+        "message": "=Hello, your message has been sent to cold lead",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        432,
+        464
+      ],
+      "id": "ab3efbfd-6a28-4ac2-9aa5-e9a2bd2e485d",
+      "name": "Team Notification2",
+      "webhookId": "dea2ede6-02e8-4d96-b325-44d655126533",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "DgN8EiN4sN67cfRZ",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Email }}",
+        "subject": "=Hello, we have received your interest, we will like to provide our services to you  {{ $json.Name }}",
+        "emailType": "text",
+        "message": "=Dear {{ $json.Name }},\nWe have received your interest in our VPS service and also the ecosystems you would like to run them and also your networth of 600$ which will help us serve you better.\nOur sales team will reach out to you for further discussion and clarification.\n\nThank you\nGregs Team",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        256,
+        384
+      ],
+      "id": "4f57e395-398c-47fe-b611-a29d99d33a93",
+      "name": "Cold Notification",
+      "webhookId": "dab24ab3-5f7d-4a50-9ae1-445398001918",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "DgN8EiN4sN67cfRZ",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Email }}",
+        "subject": "=Hello, we have received your interest, we will like to provide our services to you {{ $json.Name }}",
+        "emailType": "text",
+        "message": "=Dear {{ $json.Name }},\nWe have received your interest in our VPS service and also the ecosystems you would like to run them and also your networth of ${{ $json.Networth }}  which will help us serve you better.\nOur sales team will reach out to you for further discussion and clarification.\n\nThank you\nGregs Team",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        256,
+        192
+      ],
+      "id": "038e65b1-97c2-47c7-8dc0-a824e4366016",
+      "name": "Warm Notification",
+      "webhookId": "aa098ffe-7493-428b-9b6f-ae9fa0ad6bb1",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "DgN8EiN4sN67cfRZ",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "=joantay66@gmail.com",
+        "subject": "Notification sent",
+        "emailType": "text",
+        "message": "=Hello, your message has been sent to the hotlead",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        432,
+        -64
+      ],
+      "id": "8b0b1a65-805d-4fda-a1bf-32e9ae0bad4c",
+      "name": "Team Notification",
+      "webhookId": "dea2ede6-02e8-4d96-b325-44d655126533",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "DgN8EiN4sN67cfRZ",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Email }}",
+        "subject": "=Hello{{ $json.Name }}, we have received your interest, we will like to provide our services to you.  {{ $json.Name }}",
+        "emailType": "text",
+        "message": "=Dear {{ $json.Name }},\nWe have received your interest in our VPS service and also the ecosystems you would like to run them and also your networth of ${{ $json.Networth }} which will help us serve you better.\nOur sales team will reach out to you for further discussion and clarification.\n\nThank you\nGregs Team",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        256,
+        0
+      ],
+      "id": "53ffbd1d-ca7e-424a-abe0-2dab4057c762",
+      "name": "Hot Notification",
+      "webhookId": "61ec69dd-2192-4694-b6cc-f1aabdcc5336",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "DgN8EiN4sN67cfRZ",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1RUrpaSIkgndpXpAFU4fQz5jP1_bcf9VOMv1fCWRbx2E",
+          "mode": "list",
+          "cachedResultName": "VPS INTEREST",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1RUrpaSIkgndpXpAFU4fQz5jP1_bcf9VOMv1fCWRbx2E/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 575275123,
+          "mode": "list",
+          "cachedResultName": "Cold",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1RUrpaSIkgndpXpAFU4fQz5jP1_bcf9VOMv1fCWRbx2E/edit#gid=575275123"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Time stamp": "={{ $('Edit Fields').item.json.submittedAt }}",
+            "Name": "={{ $('Edit Fields').item.json['Full Name'] }}",
+            "Email": "={{ $('Edit Fields').item.json['Email Address'] }}",
+            "Ecosystem": "={{ $('Edit Fields').item.json.Ecosystem }}",
+            "Networth": "={{ $('Edit Fields').item.json['Networth($)'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Time stamp",
+              "displayName": "Time stamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Ecosystem",
+              "displayName": "Ecosystem",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Networth",
+              "displayName": "Networth",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        32,
+        384
+      ],
+      "id": "24ea9374-cf40-414b-a060-2dbfbebcaab9",
+      "name": "sheet3",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "9RiSL76vCvm86LuI",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1RUrpaSIkgndpXpAFU4fQz5jP1_bcf9VOMv1fCWRbx2E",
+          "mode": "list",
+          "cachedResultName": "VPS INTEREST",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1RUrpaSIkgndpXpAFU4fQz5jP1_bcf9VOMv1fCWRbx2E/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1668226435,
+          "mode": "list",
+          "cachedResultName": "Warm",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1RUrpaSIkgndpXpAFU4fQz5jP1_bcf9VOMv1fCWRbx2E/edit#gid=1668226435"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Time stamp": "={{ $json.submittedAt }}",
+            "Name": "={{ $json['Full Name'] }}",
+            "Email": "={{ $json['Email Address'] }}",
+            "Ecosystem": "={{ $json.Ecosystem }}",
+            "Networth": "={{ $json['Networth($)'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Time stamp",
+              "displayName": "Time stamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Ecosystem",
+              "displayName": "Ecosystem",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Networth",
+              "displayName": "Networth",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        32,
+        192
+      ],
+      "id": "6c404564-1880-4cee-9f22-8a6e820e3dee",
+      "name": "sheet2",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "9RiSL76vCvm86LuI",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "joantay66@gmail.com",
+        "subject": "Notification sent to Warm lead",
+        "emailType": "text",
+        "message": "Hello, your message has been sent to the warm lead",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        432,
+        192
+      ],
+      "id": "f763a58d-e42d-4212-96c4-262ecad2814a",
+      "name": "Team Notification1",
+      "webhookId": "dea2ede6-02e8-4d96-b325-44d655126533",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "DgN8EiN4sN67cfRZ",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Workflow config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger Form": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow config": {
+      "main": [
+        [
+          {
+            "node": "sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "sheet2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "sheet3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "sheet1": {
+      "main": [
+        [
+          {
+            "node": "Hot Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cold Notification": {
+      "main": [
+        [
+          {
+            "node": "Team Notification2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hot Notification": {
+      "main": [
+        [
+          {
+            "node": "Team Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "sheet3": {
+      "main": [
+        [
+          {
+            "node": "Cold Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "sheet2": {
+      "main": [
+        [
+          {
+            "node": "Warm Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v0",
+    "binaryMode": "separate",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "pinData": {
+    "sheet2": [
+      {
+        "json": {
+          "Time stamp": "2026-02-03T21:21:36.385+01:00",
+          "Name": "kulubele",
+          "Email": "crownspiiks08@gmail.com",
+          "Ecosystem": "[\"Solana\",\"Aptos\"]",
+          "Networth": 6000
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Warm Notification": [
+      {
+        "json": {
+          "id": "19c252d81b13c4e0",
+          "threadId": "19c252d81b13c4e0",
+          "labelIds": [
+            "SENT"
+          ]
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "sheet1": [
+      {
+        "json": {
+          "Time stamp": "2026-02-03T21:34:44.392+01:00",
+          "Name": "gbajambiamila",
+          "Email": "handelkim31@gmail.com",
+          "Ecosystem": "[\"Solana\",\"Ethereum\"]",
+          "Networth": 20000
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Hot Notification": [
+      {
+        "json": {
+          "id": "19c253be0af0cafd",
+          "threadId": "19c253be0af0cafd",
+          "labelIds": [
+            "SENT"
+          ]
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Trigger Form": [
+      {
+        "json": {
+          "Full Name": "john code",
+          "Email Address": "crownspiiks08@gmail.com",
+          "Ecosystem": [
+            "Solana",
+            "Ethereum",
+            "Aptos",
+            "Sui"
+          ],
+          "Networth($)": 7000,
+          "submittedAt": "2026-02-03T21:43:51.535+01:00",
+          "formMode": "test"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Edit Fields": [
+      {
+        "json": {
+          "Full Name": "john code",
+          "Email Address": "crownspiiks08@gmail.com",
+          "Ecosystem": "[\"Solana\",\"Ethereum\",\"Aptos\",\"Sui\"]",
+          "Networth($)": 7000,
+          "submittedAt": "2026-02-03T21:43:51.535+01:00"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "triggerCount": 1,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  }
+}

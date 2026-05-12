@@ -1,0 +1,331 @@
+{
+  "name": "Email Classification Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyHour"
+            }
+          ]
+        },
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -1040,
+        -256
+      ],
+      "id": "fa6712d6-06da-445c-94f9-50d367859462",
+      "name": "Gmail Trigger",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "moJHF7E53UR6IJZu",
+          "name": "Gmail OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputText": "=subject: {{ $json.Subject }}\nbody: {{ $json.snippet }}",
+        "categories": {
+          "categories": [
+            {
+              "category": "SALES",
+              "description": "Any mail that sells a product"
+            },
+            {
+              "category": "HUMAN RESOURCES",
+              "description": "Any job opening mail/ CV upload mail"
+            },
+            {
+              "category": "CUSTOMER",
+              "description": "Any customer service related mail"
+            },
+            {
+              "category": "PERSONAL",
+              "description": "Any mail that talks about education scholarships"
+            },
+            {
+              "category": "OPERATIONS",
+              "description": "Any mail that talks about finance"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "typeVersion": 1.1,
+      "position": [
+        -752,
+        -304
+      ],
+      "id": "427f6b4b-3f85-43de-976f-cf0ed588f63a",
+      "name": "Text Classifier",
+      "alwaysOutputData": false,
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4o-mini"
+        },
+        "responsesApiEnabled": false,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -688,
+        16
+      ],
+      "id": "cece9c54-6bc5-4be1-b86c-468aef4f726a",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "fXoTpk98aI73mez4",
+          "name": "n8n free OpenAI API credits"
+        }
+      },
+      "notes": "Return ONLY a valid JSON object. Do not wrap it in arrays, markdown, or add explanations"
+    },
+    {
+      "parameters": {
+        "operation": "addLabels",
+        "messageId": "={{ $('Gmail Trigger').item.json.id }}",
+        "labelIds": [
+          "Label_1"
+        ]
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        -272,
+        -736
+      ],
+      "id": "cdbd08f7-2b46-472d-a8bc-12a82708b1c5",
+      "name": "SALES",
+      "webhookId": "509a70d4-0f77-4d8e-8c75-1e11258f014f",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "moJHF7E53UR6IJZu",
+          "name": "Gmail OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "addLabels",
+        "messageId": "={{ $('Gmail Trigger').item.json.id }}",
+        "labelIds": [
+          "Label_7373982885794047182"
+        ]
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        -272,
+        -560
+      ],
+      "id": "e7f0510b-522d-4aee-8eda-c71b1bfb5080",
+      "name": "HUMAN RESOURCE",
+      "webhookId": "6cc5cea3-4ea6-444f-9589-286abdfe1820",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "moJHF7E53UR6IJZu",
+          "name": "Gmail OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "addLabels",
+        "messageId": "={{ $('Gmail Trigger').item.json.id }}",
+        "labelIds": [
+          "Label_1118545227407265021"
+        ]
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        -272,
+        -368
+      ],
+      "id": "4d015431-e247-4d5f-b9fb-ac94eac3b045",
+      "name": "CUSTOMER SERVICE",
+      "webhookId": "64bee489-681a-4ed6-9608-b9cd064e7266",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "moJHF7E53UR6IJZu",
+          "name": "Gmail OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "addLabels",
+        "messageId": "={{ $('Gmail Trigger').item.json.id }}",
+        "labelIds": [
+          "Label_4757756094030310636"
+        ]
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        -272,
+        -224
+      ],
+      "id": "a0488b2a-7671-4d8d-a9af-05db20b48243",
+      "name": "PERSONAL",
+      "webhookId": "c375c155-2686-4738-9b86-fba69382e0e1",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "moJHF7E53UR6IJZu",
+          "name": "Gmail OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "addLabels",
+        "messageId": "={{ $('Gmail Trigger').item.json.id }}",
+        "labelIds": [
+          "Label_8843282209465774194"
+        ]
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        -256,
+        -32
+      ],
+      "id": "5772fc8e-653b-4e35-83ee-30602f7f3b8d",
+      "name": "OPERATIONS",
+      "webhookId": "6a7750ff-1b4b-4e66-a9cf-a8aed7c3804f",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "moJHF7E53UR6IJZu",
+          "name": "Gmail OAuth2 API"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Gmail Trigger": [
+      {
+        "json": {
+          "id": "19df7e626534547e",
+          "threadId": "19df7e626534547e",
+          "snippet": "Start communicating by sending a &#39;Show Interest&#39; message or sending them a message.‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌ ﻿͏‌",
+          "payload": {
+            "mimeType": "multipart/alternative"
+          },
+          "sizeEstimate": 87971,
+          "historyId": "670678",
+          "internalDate": "1777980547000",
+          "labels": [
+            {
+              "id": "INBOX",
+              "name": "INBOX"
+            },
+            {
+              "id": "CATEGORY_UPDATES",
+              "name": "CATEGORY_UPDATES"
+            },
+            {
+              "id": "UNREAD",
+              "name": "UNREAD"
+            }
+          ],
+          "From": "AfroIntroductions <no-reply@email.afrointroductions.com>",
+          "Subject": "❤️ You Have 7 New Matches: Vivian, 30 years old from Los Angeles, United States, and more!",
+          "To": "joantay66@gmail.com"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Gmail Trigger": {
+      "main": [
+        [
+          {
+            "node": "Text Classifier",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Text Classifier",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text Classifier": {
+      "main": [
+        [
+          {
+            "node": "SALES",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HUMAN RESOURCE",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "CUSTOMER SERVICE",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "PERSONAL",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OPERATIONS",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "78594d4c-8d3b-4184-88f3-d09dd6d7bcc7",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "5be085f634f712e74454cd36bcf19966b8240eed66f990fffa7426a2200f08da"
+  },
+  "id": "jxEDv1sanYgokqqV",
+  "tags": []
+}
